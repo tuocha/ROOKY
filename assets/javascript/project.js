@@ -1,14 +1,14 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyA-mHjoXIfCaikwJqc-qXW6s1CaofWjLdE",
-  authDomain: "coder-fd113.firebaseapp.com",
-  databaseURL: "https://coder-fd113.firebaseio.com",
-  projectId: "coder-fd113",
+  apiKey: "AIzaSyCcuci5f0u5UU_Ejo8LjQVGxK5cZTPScws",
+  authDomain: "core-shard-245615.firebaseapp.com",
+  databaseURL: "https://core-shard-245615.firebaseio.com",
+  projectId: "core-shard-245615",
   storageBucket: "",
-  messagingSenderId: "221023332131",
-  appId: "1:221023332131:web:1fa65e657809877c"
+  messagingSenderId: "239144941486",
+  appId: "1:239144941486:web:f89012a9b738e94c"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 database = firebase.database();
 
 // Declare Maps/forms variables
