@@ -119,7 +119,7 @@ footer{
 .banner-section .form-control{
     border: none;
     background: none;
-    padding: 2rem;
+    min-height: 66px;
     border-right: 1px solid #e4e4e4;
 }
 .banner-section .form-control:focus{
@@ -129,6 +129,17 @@ footer{
     background: none;
     border: none;
     padding: 0;
+}
+.banner-section input:-webkit-autofill,
+.banner-section input:-webkit-autofill:hover, 
+.banner-section input:-webkit-autofill:focus,
+.banner-section select:-webkit-autofill,
+.banner-section select:-webkit-autofill:hover,
+.banner-section select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .banner-section button{
     padding: 20px 30px;
@@ -143,8 +154,7 @@ footer{
 
 .banner-section .icon{
     position: relative;
-    left: 20px;
-
+    padding: 0px 15px;
 }
 .ratings, .ratings .rating{
     height: 11px;
@@ -190,6 +200,14 @@ footer{
     padding: 20px;
     box-shadow: 1px 2px 6.5px #c0c0c0;
     border-top: 5px solid #17a2b8;
+}
+.table-search{
+    background-color: #fff;
+    /* margin: -20px -20px 15px; */
+    padding: 20px;
+    box-shadow: 1px 2px 6.5px #c0c0c0;
+    border-top: 5px solid #17a2b8;
+    margin-top: 2rem;
 }
 #map-input{
     height: 600px;
