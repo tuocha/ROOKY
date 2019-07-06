@@ -42,7 +42,7 @@ function initMap() {
       };
 
       // Pan both maps to the user's location
-      mainMap.panTo(currentLocation);
+      
       inputMap.panTo(currentLocation);
     }, function () {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -52,8 +52,8 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  mainMap = new google.maps.Map(
-    document.getElementById('main-map'), { zoom: 13, center: currentLocation });
+  inputMap = new google.maps.Map(
+    document.getElementById('map-input'), { zoom: 13, center: currentLocation });
   inputMap = new google.maps.Map(
     document.getElementById('map-input'), { zoom: 17, center: currentLocation });
 
@@ -168,7 +168,7 @@ $(document).ready(function () {
     // Place a marker based on the object's position
     var marker = new google.maps.Marker({
       position: devPosition,
-      map: mainMap,
+      map: inputMap,
       animation: google.maps.Animation.DROP,
     });
 
@@ -191,11 +191,11 @@ $(document).ready(function () {
 
     // When the marker is clicked, open the info window
     marker.addListener('click', function () {
-      infoWindow.open(mainMap, marker);
+      infoWindow.open(inputMap, marker);
     });
 
     // If an infoWindow is open and you click the map, close the previously opened infoWindow
-    google.maps.event.addListener(mainMap, 'click', function () {
+    google.maps.event.addListener(inputMap, 'click', function () {
       infoWindow.close();
     });
   });
