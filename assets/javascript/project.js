@@ -202,3 +202,49 @@ $(document).ready(function () {
 });
 
 
+$('#position-dropdown').on('change', function() {
+  // prevents page from refresh when submit button is hit (might not need this with dropdown)
+  event.preventDefault();
+
+  // assigns value of the dropdown to a variable
+  var userCategory = $(this).val();
+
+  //  AJAX call to Muse API, to be used in search
+
+  function ajaxMuse() {
+    var category = userCategory;
+    var apiKey = '23580774d9f6a1fe049b5d520991447e22cb26e44cc17bf753423acbce7dba87';
+    var location = 'San Francisco';
+    var queryURL =
+      'https://api-v2.themuse.com/jobs?category=' +
+      category +
+      '&location=San%20Francisco%2C%20CA&api_key=' +
+      apiKey +
+      '&page=1';
+
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).then(function(response) {
+      // clears previous results from table, put here so less of a delay when outside of AJAX call
+      $('.search-results').empty();
+
+      for (var i = 0; i <= response.results.length; i++) {
+        // create new row
+        var newRow = $('<tr>');
+        newRow.attr('data-jobID', response.results[i].id);
+
+        newRow.append('<td>' + response.results[i].company.name + '</td>');
+        newRow.append('<td>' + response.results[i].name + '</td>');
+        newRow.append('<td>' + response.results[i].locations[0].name + '</td>');
+        newRow.append("<td><button class='add-btn add-button'>Add Job</button><td>");
+
+        // append it onto the search-body tably
+        $('.search-results').append(newRow);
+        $('.search-results').append("<tr class='spacer'></tr>");
+      }
+    });
+  }
+
+  ajaxMuse();
+});
