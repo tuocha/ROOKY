@@ -203,13 +203,25 @@ footer{
 }
 .table-search{
     background-color: #fff;
-    /* margin: -20px -20px 15px; */
-    padding: 20px;
     box-shadow: 1px 2px 6.5px #c0c0c0;
     border-top: 5px solid #17a2b8;
-    margin-top: 2rem;
 }
 #map-input{
     height: 600px;
   }
   
+.sub-heading{
+    font-size: 1.7rem;
+    color: #17a2b8;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+.search-table-section, .map-section{
+    margin: 3rem 0rem;
+}
+.dev-form-wrapper{
+    background-color: #fff;
+    /* margin: -20px -20px 15px; */
+    padding: 20px;
+    box-shadow: 1px 2px 6.5px #c0c0c0;
+}
