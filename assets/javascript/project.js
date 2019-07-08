@@ -245,7 +245,11 @@ $('#position-dropdown').on('change', function() {
         newRow.append('<td>' + response.results[i].company.name + '</td>');
         newRow.append('<td>' + response.results[i].name + '</td>');
         newRow.append('<td>' + response.results[i].locations[0].name + '</td>');
+
         newRow.append("<td><button class='detail-btn add-btn add-button btn btn-info'>View Detail</button><td>");
+
+     
+
 
         // append it onto the search-body tably
         $('.search-results').append(newRow);
