@@ -9,7 +9,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-database = firebase.database();
+var database = firebase.database();
 
 // Declare Maps/forms variables
 var latInput = 0;
@@ -27,6 +27,7 @@ var phone;
 var email;
 var github;
 var linkedin;
+var handleLocationError;
 
 function initMap() {
   // Default location: Philadelphia
@@ -113,17 +114,17 @@ $(document).ready(function () {
     phone = $('#phone-input').val().trim();
     github = $('#github-input').val().trim();
     linkedin = $('#linkedin-input').val().trim();
-    devImage = $('#dev-image-input').val().trim();
+   // devImage = $('#dev-image-input').val().trim();
     description = $('#description-input').val().trim();
 
     // If all input fields have been filled out...
-    if (name != "" && phone != "" && github != "" && linkedin != "" && devImage != "" && description != "") {
+    if (name != "" && phone != "" && github != "" && linkedin != "" && description != "") {
       // Format the user input to prepare it for storage in Firebase
       nameFormatted = name.charAt(0).toUpperCase() + name.substr(1);
       phoneFormatted = phone.charAt(0).toUpperCase() + phone.substr(1);
       githubFormatted = github.charAt(0).toUpperCase() + github.substr(1);
       linkedinFormatted = linkedin.charAt(0).toUpperCase() + linkedin.substr(1);
-      devImageFormatted = devImage.charAt(0).toUpperCase() + devImage.substr(1);
+      // devImageFormatted = devImage.charAt(0).toUpperCase() + devImage.substr(1);
       descriptionFormatted = description.charAt(0).toUpperCase() + description.substr(1);
 
       // Mark the form as completed
@@ -162,7 +163,7 @@ $(document).ready(function () {
     var phone = childData.phone;
     var github = childData.github;
     var linkedin = childData.linkedin;
-    var devImage = childData.devImage;
+    // var devImage = childData.devImage;
     var description = childData.description;
 
     // Place a marker based on the object's position
@@ -179,7 +180,7 @@ $(document).ready(function () {
       '<p class="phone">' + phone + '</p>' +
       '<p class = "github">' + github + '</p>' +
       '<p class = "linkedin">' + linkedin + '</p>' +
-      '<img src="' + devImage + '">' +
+      // '<img src="' + devImage + '">' +
       '<p><strong>Description: </strong><br />' + description + '</p>' +
       '<hr>' +
       '</div>';
@@ -202,6 +203,10 @@ $(document).ready(function () {
 });
 
 
+var activeJobID;
+var activeFireID;
+
+
 $('#position-dropdown').on('change', function() {
   // prevents page from refresh when submit button is hit (might not need this with dropdown)
   event.preventDefault();
@@ -210,22 +215,25 @@ $('#position-dropdown').on('change', function() {
   var userCategory = $(this).val();
 
   //  AJAX call to Muse API, to be used in search
-
+  
   function ajaxMuse() {
     var category = userCategory;
     var apiKey = '23580774d9f6a1fe049b5d520991447e22cb26e44cc17bf753423acbce7dba87';
-    var location = 'San Francisco';
+   // var location = 'San Francisco, CA';
+    var location = $("#location-dropdown").val();
     var queryURL =
       'https://api-v2.themuse.com/jobs?category=' +
       category +
-      '&location=San%20Francisco%2C%20CA&api_key=' +
+      '&location='+location+'&api_key=' +
       apiKey +
       '&page=1';
-
+      
+      
     $.ajax({
       url: queryURL,
       method: 'GET'
     }).then(function(response) {
+    //  console.log(response);
       // clears previous results from table, put here so less of a delay when outside of AJAX call
       $('.search-results').empty();
 
@@ -237,7 +245,7 @@ $('#position-dropdown').on('change', function() {
         newRow.append('<td>' + response.results[i].company.name + '</td>');
         newRow.append('<td>' + response.results[i].name + '</td>');
         newRow.append('<td>' + response.results[i].locations[0].name + '</td>');
-        newRow.append("<td><button class='add-btn add-button btn btn-info'>Add Job</button><td>");
+        newRow.append("<td><button class='detail-btn add-btn add-button btn btn-info'>View Detail</button><td>");
 
         // append it onto the search-body tably
         $('.search-results').append(newRow);
@@ -247,4 +255,65 @@ $('#position-dropdown').on('change', function() {
   }
 
   ajaxMuse();
+});
+
+
+
+
+// JOB-DETAIL.HTML
+
+// Firebase listening for when page loads....
+database.ref().on('child_added', function(snapshot) {
+  // storing firebase pathway to variable
+  var snap = snapshot.val();
+
+  // AJAX call to populate job posting data from jobID saved in firebase
+
+  // concatenate URL and activeJOB saved to localStorage
+  var apiKey = '23580774d9f6a1fe049b5d520991447e22cb26e44cc17bf753423acbce7dba87';
+  var queryURL = 'https://api-v2.themuse.com/jobs/' + localStorage.activeJobID + '?api_key=' + apiKey;
+
+  $.ajax({
+    url: queryURL,
+    method: 'GET'
+  }).then(function(response) {
+    // populates job posting-specific information from AJAX call
+    $('#company-name').text(response.company.name);
+    $('#job-name').text(response.name);
+    $('#job-description').html(response.contents);
+   
+   
+  });
+});
+
+// on click of any company name, locally save the Firebase ID and jobID of that posting....
+
+$(document).on('click', '.detail-btn', function() {
+ 
+ // assigning API jobID and Firebase ID to variables....
+  activeJobID = $(this)
+    .parent()
+    .parent()
+    .attr('data-jobID');
+   activeFireID = $(this)
+    .parent()
+    .parent()
+    .attr('data-fireID');
+  //  .... and storing those variables locally so they persist when the page changes
+  localStorage.setItem('activeJobID', activeJobID);
+  localStorage.setItem('activeFireID', activeFireID);
+
+  //brings user to job-view.html page
+  document.location = 'job-detail.html';
+});
+
+$(document).on('click', '#applySubmit', function() {
+//   var newVar=$('#name').val();
+//  console.log(newVar);
+event.preventDefault();
+ if(($('#name').val()!=="") && ($('#email').val()!=="") && ($('#contact').val()!=="") && ($('#attach-resume').val()!=="")){
+
+  $('#applyNowform').css("display", "none");
+  $('.msg-success').css("display", "block");
+ }
 });

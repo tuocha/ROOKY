@@ -24,7 +24,9 @@
 
             <nav class="navbar navbar-expand-md navbar-dark ">
                 <!-- Brand -->
-                <a class="navbar-brand logo" href="index.html">Rooky</a>
+                <a class="navbar-brand logo" href="index.html">
+                    <img src="assets/images/Rooky logo.png" width="80px"/>
+                </a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -41,8 +43,7 @@
                             <a class="nav-link" href="#" title=" ">Menu2</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#addDeveloperModal"
-                             title=" ">Add as a developer</a>
+                            <a class="nav-link" href="#" title=" ">Add as a developer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"
@@ -64,11 +65,20 @@
         </div>
         <div class="input-group mb-3" id="location-form"> 
             <div class="input-group-append">
-                <span class="input-group-text"><i class="fas fa-search icon"></i> </span>
-            </div> 
-            <input type="text" class="form-control" placeholder="Search by keyword, skill, or interest">   
-            <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-map-marker-alt icon"></i> </span>
+            </div> 
+
+           <!-- <input type="text" class="form-control" placeholder="Search by keyword, skill, or interest">    -->
+            <select class="form-control" name="location" id="location-dropdown">
+                <option value="" disabled="" selected="">Select a job location</option>
+                <option value="San Francisco, CA">San Francisco, CA</option>
+                <option value="New York, NY">New York, NY</option>
+                <option value="Philadelphia, PA">Philadelphia, PA</option>
+                <option value="Boston, MA">Boston, MA</option>
+                <option value="Cambridge, MA">Cambridge, MA</option>
+            </select>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-search icon"></i> </span>
             </div>  
             <select class="form-control" name="position" id="position-dropdown">
                 <option value="" disabled="" selected="">Select a job position</option>
@@ -76,7 +86,6 @@
                 <option value="Marketing &amp; PR">Marketing &amp; PR</option>
                 <option value="Operations">Operations</option>
                 <option value="Sales">Sales</option>
-               
             </select>
             <div class="input-group-append">
             <span class="input-group-text"><button type="button" class="btn btn-info">Search</button> </span>
@@ -104,7 +113,7 @@
                                 <th>Company</th>
                                 <th>Position</th>
                                 <th>Location</th>
-                                <th>Add job</th>
+                                <th>View Job Detail</th>
                             </tr>
                         </thead>
                         <tbody class="tbody search-results">
@@ -139,12 +148,12 @@
                                 <input type="text" class="form-control" id="dev-image-input"
                                     placeholder="https://www.yourpicture.png" required>
                             </div> -->
-                            <label for="dev-image-input">Link to your photo:</label>
+                            <!-- <label for="dev-image-input">Link to your photo:</label>
                             <div class="custom-file mb-3">
                                 
                                 <input type="file" class="custom-file-input" id="dev-image-input" name="filename">
                                 <label class="custom-file-label" for="dev-image-input">Choose file</label>
-                            </div>
+                            </div> -->
                             
                             <div class="form-group">
                                 <label for="phone-input">Your Phone Number:</label>
@@ -216,17 +225,18 @@
     </div>
     <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <script src="assets/javascript/project.js"></script>
+   
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKwajkv1_CY2BsPt0DQCvUH9EruZYb3dg&callback=initMap"
         type="text/javascript"></script>
-        <script>
-            // Add the following code if you want the name of the file appear on select
-            $(".custom-file-input").on("change", function() {
-              var fileName = $(this).val().split("\\").pop();
-              $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-            });
-            </script>
+    <script src="assets/javascript/project.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 </body>
 
 </html>
