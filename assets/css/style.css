@@ -237,8 +237,11 @@ footer{
 }
 .table-search{
     background-color: #fff;
+
     box-shadow: 1px 2px 6.5px #c0c0c0;
+
     border-top: 5px solid #379c03;
+
 }
 #map-input{
     height: 600px;
