@@ -114,17 +114,17 @@ $(document).ready(function () {
     phone = $('#phone-input').val().trim();
     github = $('#github-input').val().trim();
     linkedin = $('#linkedin-input').val().trim();
-   // devImage = $('#dev-image-input').val().trim();
+    devImage = $('#dev-image-input').val().trim();
     description = $('#description-input').val().trim();
 
     // If all input fields have been filled out...
-    if (name != "" && phone != "" && github != "" && linkedin != "" && description != "") {
+    if (name != "" && phone != "" && github != "" && devImage !="" && linkedin != "" && description != "") {
       // Format the user input to prepare it for storage in Firebase
       nameFormatted = name.charAt(0).toUpperCase() + name.substr(1);
       phoneFormatted = phone.charAt(0).toUpperCase() + phone.substr(1);
       githubFormatted = github.charAt(0).toUpperCase() + github.substr(1);
       linkedinFormatted = linkedin.charAt(0).toUpperCase() + linkedin.substr(1);
-      // devImageFormatted = devImage.charAt(0).toUpperCase() + devImage.substr(1);
+      devImageFormatted = devImage.charAt(0).toUpperCase() + devImage.substr(1);
       descriptionFormatted = description.charAt(0).toUpperCase() + description.substr(1);
 
       // Mark the form as completed
@@ -163,7 +163,7 @@ $(document).ready(function () {
     var phone = childData.phone;
     var github = childData.github;
     var linkedin = childData.linkedin;
-    // var devImage = childData.devImage;
+    var devImage = childData.devImage;
     var description = childData.description;
 
     // Place a marker based on the object's position
@@ -180,7 +180,8 @@ $(document).ready(function () {
       '<p class="phone">' + phone + '</p>' +
       '<p class = "github">' + github + '</p>' +
       '<p class = "linkedin">' + linkedin + '</p>' +
-      // '<img src="' + devImage + '">' +
+      '<img src="' + devImage + '" width="80px" class="img-thumbnail">' +
+     // '<img src="../images/marker.png"/>'+
       '<p><strong>Description: </strong><br />' + description + '</p>' +
       '<hr>' +
       '</div>';
