@@ -17,7 +17,7 @@ header{
 }
 .logo{
     font-family: 'Georgia', Times, Times New Roman, serif;
-    background-color: #17a2b8;
+    background-color: #379c03;
     /* background-color: #1dad70; */
     border: 1px solid #fff;
     color: #ffffff;
@@ -73,7 +73,7 @@ nav ul li:first-child a{
 }
 nav ul li.active a,
 nav ul li a:hover{
-    color: #17a2b8 !important;
+    color: #379c03 !important;
 }
 @media (min-width: 768px){
 .nav-link{
@@ -99,7 +99,7 @@ nav ul li a{
 }
 .main-heading{
     font-family: 'Georgia', Times, Times New Roman, serif;
-    color:#17a2b8;
+    color:#379c03;
     margin: 0 0 20px;
     border-bottom: 2px solid #dddddd;
     padding-bottom: 20px;
@@ -113,14 +113,14 @@ footer{
     color: #dddddd;
     text-align: center;
     padding: 30px 10px 10px;
-    border-top: 8px solid #17a2b8;
+    border-top: 8px solid #379c03;
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
 
 .navbar-toggler{
-    background-color: #17a2b8;
+    background-color: #379c03;
 }
 .main-outer-box {
     padding-bottom: 70px;
@@ -182,6 +182,7 @@ footer{
 .banner-section .icon{
     position: relative;
     padding: 0px 0px 0px 20px;
+    color:#379c03;
 }
 #location-form:hover .icon{
     -webkit-transform: rotate(10deg);
@@ -210,14 +211,14 @@ footer{
     border-bottom: 1px solid #d9d9d9;  
 }
 .company-list li h5{
-    color: #17a2b8;
+    color: #379c03;
 }
 .company-list li .location{
     color: #909090
 }
 .company-list li.active{
     background-color: #f3fcfd;
-    border-right: 10px solid #17a2b8;
+    border-right: 10px solid #379c03;
 }
 .job-details{
     margin-top: 30px;
@@ -232,12 +233,12 @@ footer{
     margin: -20px -20px 15px;
     padding: 20px;
     box-shadow: 1px 2px 6.5px #c0c0c0;
-    border-top: 5px solid #17a2b8;
+    border-top: 5px solid #379c03;
 }
 .table-search{
     background-color: #fff;
     box-shadow: 1px 2px 6.5px #c0c0c0;
-    border-top: 5px solid #17a2b8;
+    border-top: 5px solid #379c03;
 }
 #map-input{
     height: 600px;
@@ -245,7 +246,7 @@ footer{
   
 .sub-heading{
     font-size: 1.7rem;
-    color: #17a2b8;
+    color:#379c03;
     padding-bottom: 20px;
     font-weight: 600;
 }
@@ -273,3 +274,9 @@ footer{
 .custom-file-label{
     overflow: hidden;
 }
+.btn-info{
+   background-color: #379c03 !important;
+   border:1px solid #308e00 !important;
+}
+.btn-info:hover{
+   background-color: #256d00 !important;
