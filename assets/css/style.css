@@ -213,3 +213,10 @@ footer{
     height: 600px;
   }
   
+#search{
+    padding:20px;
+}
+.accordion{
+    padding: 20px;
+    text-align: center;
+}
