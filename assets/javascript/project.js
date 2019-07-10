@@ -29,6 +29,7 @@ var github;
 var linkedin;
 var handleLocationError;
 
+
 function initMap() {
   // Default location: Philadelphia
   var currentLocation = { lat: 39.953, lng: -75.165 };
@@ -204,6 +205,9 @@ $(document).ready(function () {
 });
 
 
+
+
+
 var activeJobID;
 var activeFireID;
 
@@ -266,6 +270,9 @@ $('#position-dropdown').on('change', function() {
 
 
 // JOB-DETAIL.HTML
+
+// var dataRef = 
+//       new Firebase('https://core-shard-245615.firebaseio.com');
 
 // Firebase listening for when page loads....
 database.ref().on('child_added', function(snapshot) {

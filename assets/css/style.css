@@ -39,7 +39,7 @@ header{
     .logo{
         box-shadow: 1px 2px 69.5px #000;  
         position: absolute;
-        top: 0px;
+        top: 15px;
         padding: 10px;
     }
     .logo img{
@@ -127,8 +127,9 @@ footer{
 }
 
 .banner-section{
-    background-image: url("https://www.getsmarter.com/blog/wp-content/uploads/2017/02/Career-Goals-Job-Search-Emails-Banner-6.jpg");
-    background-size: cover;
+    background-image: url("../images/apply-job-banner.jpg");
+    background-size: cover !important;
+    background-attachment: fixed !important;
     padding: 6rem 0;
 }
 .banner-section .heading{
@@ -282,4 +283,33 @@ footer{
    border:1px solid #308e00 !important;
 }
 .btn-info:hover{
+
    background-color: #256d00 !important;
+}
+a, a:hover {
+    color: #379c03;
+}
+#accordion .card .card-header{
+    background-color: #379c03;
+    padding: 0px;
+}
+#accordion .card .card-header a{
+    color: #fff;
+    display: block;
+    padding: 10px 15px;
+}
+.job-detail-banner{
+    background: url('../images/job-details-banner.jpg');
+    background-position: center;
+}
+.interview-tips-banner{
+    background: url('../images/interview-tips-banner.jpg');
+    background-position: center;
+
+}
+.news-artical-banner{
+    background: url('../images/news-article-banner.jpg');
+    background-position: center;
+
+}
+
