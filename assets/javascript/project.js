@@ -247,4 +247,6 @@ $('#position-dropdown').on('change', function() {
   }
 
   ajaxMuse();
+
+  
 });
