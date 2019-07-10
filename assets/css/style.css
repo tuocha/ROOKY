@@ -242,7 +242,6 @@ footer{
     box-shadow: 1px 2px 6.5px #c0c0c0;
 
     border-top: 5px solid #379c03;
-
 }
 #map-input{
     height: 600px;
@@ -310,6 +309,4 @@ a, a:hover {
 .news-artical-banner{
     background: url('../images/news-article-banner.jpg');
     background-position: center;
-
-}
 
