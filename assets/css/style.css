@@ -238,8 +238,11 @@ footer{
 }
 .table-search{
     background-color: #fff;
+
     box-shadow: 1px 2px 6.5px #c0c0c0;
+
     border-top: 5px solid #379c03;
+
 }
 #map-input{
     height: 600px;
@@ -280,6 +283,7 @@ footer{
    border:1px solid #308e00 !important;
 }
 .btn-info:hover{
+
    background-color: #256d00 !important;
 }
 a, a:hover {
@@ -308,3 +312,4 @@ a, a:hover {
     background-position: center;
 
 }
+
