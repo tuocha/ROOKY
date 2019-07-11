@@ -44,7 +44,7 @@ function initMap() {
       };
 
       // Pan both maps to the user's location
-      
+
       inputMap.panTo(currentLocation);
     }, function () {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -110,6 +110,7 @@ function generateDeveloper() {
 $(document).ready(function () {
 
   function checkFormCompletion() {
+
     // Store form values
     name = $('#name-input').val().trim();
     phone = $('#phone-input').val().trim();
@@ -119,7 +120,7 @@ $(document).ready(function () {
     description = $('#description-input').val().trim();
 
     // If all input fields have been filled out...
-    if (name != "" && phone != "" && github != "" && devImage !="" && linkedin != "" && description != "") {
+    if (name != "" && phone != "" && github != "" && devImage != "" && linkedin != "" && description != "") {
       // Format the user input to prepare it for storage in Firebase
       nameFormatted = name.charAt(0).toUpperCase() + name.substr(1);
       phoneFormatted = phone.charAt(0).toUpperCase() + phone.substr(1);
@@ -131,6 +132,32 @@ $(document).ready(function () {
       // Mark the form as completed
       formCompleted = true;
     }
+
+    function regEx() {
+      testName();
+      testPhoneNumber();
+
+      function testName() {
+        name = $('#name-input').val().trim();
+        var nameTest = name.search(/[0-9]/g);
+        if (nameTest > -1) {
+          alert("Please enter only letters in this field.");
+          event.preventDefault();
+        }
+      }
+
+      function testPhoneNumber() {
+        // phone = $('#phone-input').val().trim();
+        var phoneTest = phone.search(/^[2-9]\d{2}-\d{3}-\d{4}$/g);
+
+        if (phoneTest == -1 || phone == "") {
+          alert("Please enter a valid phone number")
+          event.preventDefault();
+        }
+      }
+    }
+    regEx();
+
   }
 
   // Submit the form
@@ -182,7 +209,7 @@ $(document).ready(function () {
       '<p class = "github">' + github + '</p>' +
       '<p class = "linkedin">' + linkedin + '</p>' +
       '<img src="' + devImage + '" width="80px" class="img-thumbnail">' +
-     // '<img src="../images/marker.png"/>'+
+      // '<img src="../images/marker.png"/>'+
       '<p><strong>Description: </strong><br />' + description + '</p>' +
       '<hr>' +
       '</div>';
@@ -212,7 +239,7 @@ var activeJobID;
 var activeFireID;
 
 
-$('#position-dropdown').on('change', function() {
+$('#position-dropdown').on('change', function () {
   // prevents page from refresh when submit button is hit (might not need this with dropdown)
   event.preventDefault();
 
@@ -220,25 +247,25 @@ $('#position-dropdown').on('change', function() {
   var userCategory = $(this).val();
 
   //  AJAX call to Muse API, to be used in search
-  
+
   function ajaxMuse() {
     var category = userCategory;
     var apiKey = '23580774d9f6a1fe049b5d520991447e22cb26e44cc17bf753423acbce7dba87';
-   // var location = 'San Francisco, CA';
+    // var location = 'San Francisco, CA';
     var location = $("#location-dropdown").val();
     var queryURL =
       'https://api-v2.themuse.com/jobs?category=' +
       category +
-      '&location='+location+'&api_key=' +
+      '&location=' + location + '&api_key=' +
       apiKey +
       '&page=1';
-      
-      
+
+
     $.ajax({
       url: queryURL,
       method: 'GET'
-    }).then(function(response) {
-    //  console.log(response);
+    }).then(function (response) {
+      //  console.log(response);
       // clears previous results from table, put here so less of a delay when outside of AJAX call
       $('.search-results').empty();
 
@@ -253,7 +280,7 @@ $('#position-dropdown').on('change', function() {
 
         newRow.append("<td><button class='detail-btn add-btn add-button btn btn-info'>View Detail</button><td>");
 
-     
+
 
 
         // append it onto the search-body tably
@@ -275,7 +302,7 @@ $('#position-dropdown').on('change', function() {
 //       new Firebase('https://core-shard-245615.firebaseio.com');
 
 // Firebase listening for when page loads....
-database.ref().on('child_added', function(snapshot) {
+database.ref().on('child_added', function (snapshot) {
   // storing firebase pathway to variable
   var snap = snapshot.val();
 
@@ -288,26 +315,26 @@ database.ref().on('child_added', function(snapshot) {
   $.ajax({
     url: queryURL,
     method: 'GET'
-  }).then(function(response) {
+  }).then(function (response) {
     // populates job posting-specific information from AJAX call
     $('#company-name').text(response.company.name);
     $('#job-name').text(response.name);
     $('#job-description').html(response.contents);
-   
-   
+
+
   });
 });
 
 // on click of any company name, locally save the Firebase ID and jobID of that posting....
 
-$(document).on('click', '.detail-btn', function() {
- 
- // assigning API jobID and Firebase ID to variables....
+$(document).on('click', '.detail-btn', function () {
+
+  // assigning API jobID and Firebase ID to variables....
   activeJobID = $(this)
     .parent()
     .parent()
     .attr('data-jobID');
-   activeFireID = $(this)
+  activeFireID = $(this)
     .parent()
     .parent()
     .attr('data-fireID');
@@ -319,13 +346,13 @@ $(document).on('click', '.detail-btn', function() {
   document.location = 'job-detail.html';
 });
 
-$(document).on('click', '#applySubmit', function() {
-//   var newVar=$('#name').val();
-//  console.log(newVar);
-event.preventDefault();
- if(($('#name').val()!=="") && ($('#email').val()!=="") && ($('#contact').val()!=="") && ($('#attach-resume').val()!=="")){
+$(document).on('click', '#applySubmit', function () {
+  //   var newVar=$('#name').val();
+  //  console.log(newVar);
+  event.preventDefault();
+  if (($('#name').val() !== "") && ($('#email').val() !== "") && ($('#contact').val() !== "") && ($('#attach-resume').val() !== "")) {
 
-  $('#applyNowform').css("display", "none");
-  $('.msg-success').css("display", "block");
- }
+    $('#applyNowform').css("display", "none");
+    $('.msg-success').css("display", "block");
+  }
 });
