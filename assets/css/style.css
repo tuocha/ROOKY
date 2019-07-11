@@ -7,7 +7,7 @@ body{
 }
 header{
     background-color: #ffffff;
-    border-bottom: 2px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
     box-shadow: 1px 2px 6.5px #bfbebe;
     
 }
@@ -17,16 +17,38 @@ header{
 }
 .logo{
     font-family: 'Georgia', Times, Times New Roman, serif;
-    background-color: #17a2b8;
+    background-color: #379c03;
+    /* background-color: #1dad70; */
+    border: 1px solid #fff;
     color: #ffffff;
     display: inline-block;
     font-size: 30px;
-    padding: 10px;   
+    padding: 5px; 
+    border-radius: 30px 0px 30px 0px;
 }
-
+.logo img{
+    width:60px;
+}
+.logo:hover img{
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+    -webkit-transition: transform 0.5s;
+    transition: transform 0.5s;
+}
+@media (min-width: 768px){
+    .logo{
+        box-shadow: 1px 2px 69.5px #000;  
+        position: absolute;
+        top: 15px;
+        padding: 10px;
+    }
+    .logo img{
+        width:80px;
+    }
+}
 nav ul{
     list-style-type: none;
-    padding: 10px 0px 0px;
+    padding: 20px 0px;
 }
 nav ul li{
     display: inline-block;
@@ -35,7 +57,8 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     color: #777777;
-    border-left: 1px solid #dddddd;
+    border-left: none;
+    border-top: 1px solid #dddddd;
     padding-left: 15px;
 }
 nav ul li:first-child a{
@@ -50,12 +73,16 @@ nav ul li:first-child a{
 }
 nav ul li.active a,
 nav ul li a:hover{
-    color: #17a2b8 !important;
+    color: #379c03 !important;
 }
 @media (min-width: 768px){
 .nav-link{
     padding-top: 0px !important;
     padding-bottom: 0px !important;
+}
+nav ul li a{
+    border-left: 1px solid #dddddd;
+    border-top: none;
 }
 .navbar-expand-md{
     padding: 0;
@@ -72,7 +99,7 @@ nav ul li a:hover{
 }
 .main-heading{
     font-family: 'Georgia', Times, Times New Roman, serif;
-    color:#17a2b8;
+    color:#379c03;
     margin: 0 0 20px;
     border-bottom: 2px solid #dddddd;
     padding-bottom: 20px;
@@ -86,22 +113,23 @@ footer{
     color: #dddddd;
     text-align: center;
     padding: 30px 10px 10px;
-    border-top: 8px solid #17a2b8;
+    border-top: 8px solid #379c03;
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
 
 .navbar-toggler{
-    background-color: #17a2b8;
+    background-color: #379c03;
 }
 .main-outer-box {
     padding-bottom: 70px;
 }
 
 .banner-section{
-    background-image: url("https://www.getsmarter.com/blog/wp-content/uploads/2017/02/Career-Goals-Job-Search-Emails-Banner-6.jpg");
-    background-size: cover;
+    background-image: url("../images/apply-job-banner.jpg");
+    background-size: cover !important;
+    background-attachment: fixed !important;
     padding: 6rem 0;
 }
 .banner-section .heading{
@@ -154,7 +182,14 @@ footer{
 
 .banner-section .icon{
     position: relative;
-    padding: 0px 15px;
+    padding: 0px 0px 0px 20px;
+    color:#379c03;
+}
+#location-form:hover .icon{
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+    -webkit-transition: transform 0.5s;
+    transition: transform 0.5s;
 }
 .ratings, .ratings .rating{
     height: 11px;
@@ -177,14 +212,14 @@ footer{
     border-bottom: 1px solid #d9d9d9;  
 }
 .company-list li h5{
-    color: #17a2b8;
+    color: #379c03;
 }
 .company-list li .location{
     color: #909090
 }
 .company-list li.active{
     background-color: #f3fcfd;
-    border-right: 10px solid #17a2b8;
+    border-right: 10px solid #379c03;
 }
 .job-details{
     margin-top: 30px;
@@ -199,17 +234,79 @@ footer{
     margin: -20px -20px 15px;
     padding: 20px;
     box-shadow: 1px 2px 6.5px #c0c0c0;
-    border-top: 5px solid #17a2b8;
+    border-top: 5px solid #379c03;
 }
 .table-search{
     background-color: #fff;
-    /* margin: -20px -20px 15px; */
-    padding: 20px;
+
     box-shadow: 1px 2px 6.5px #c0c0c0;
-    border-top: 5px solid #17a2b8;
-    margin-top: 2rem;
+
+    border-top: 5px solid #379c03;
 }
 #map-input{
     height: 600px;
   }
   
+.sub-heading{
+    font-size: 1.7rem;
+    color:#379c03;
+    padding-bottom: 20px;
+    font-weight: 600;
+}
+.search-table-section, .map-section{
+    margin: 3rem 0rem;
+}
+.dev-form-wrapper{
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 1px 2px 6.5px #c0c0c0;
+}
+.msg-success{
+    display: none;
+}
+.modal-header .modal-title {
+    width: 100%;
+    padding-bottom: 0px;
+}
+.btn{
+    font-weight: bold;
+}
+.btn, .custom-file-label, .form-control{
+    border-radius: 0px;
+}
+.custom-file-label{
+    overflow: hidden;
+}
+.btn-info{
+   background-color: #379c03 !important;
+   border:1px solid #308e00 !important;
+}
+.btn-info:hover{
+
+   background-color: #256d00 !important;
+}
+a, a:hover {
+    color: #379c03;
+}
+#accordion .card .card-header{
+    background-color: #379c03;
+    padding: 0px;
+}
+#accordion .card .card-header a{
+    color: #fff;
+    display: block;
+    padding: 10px 15px;
+}
+.job-detail-banner{
+    background: url('../images/job-details-banner.jpg');
+    background-position: center;
+}
+.interview-tips-banner{
+    background: url('../images/interview-tips-banner.jpg');
+    background-position: center;
+
+}
+.news-artical-banner{
+    background: url('../images/news-article-banner.jpg');
+    background-position: center;
+
