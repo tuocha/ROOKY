@@ -13,7 +13,9 @@ function NYT() {
     // Begin building an object to contain our API call's query parameters
     // Set the API key
 
+
     // Grab text the user typed into the search input, add to the queryParams object
+
 
     $.ajax({
         url: queryURL,
@@ -23,6 +25,7 @@ function NYT() {
           $('#article').empty();
 
           for (var i = 0; i <= response.results.length; i++) {
+
            
             // create new row
             var newRow = $('<tr>');
@@ -31,6 +34,7 @@ function NYT() {
             newRow.append('<td><strong>' + response.results[i].title +'</strong><br/>'+
                 response.results[i].abstract +'<br/><a href="'+ response.results[i].url + '" target="_blank"><button type="button" class="btn btn-info btn-sm">Read More</button></td>');
            
+
             // append it onto the search-body tably
             $('#article').append(newRow);
             $('#article').append("<tr class='spacer'></tr>");
