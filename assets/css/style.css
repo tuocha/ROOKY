@@ -240,7 +240,6 @@ footer{
     background-color: #fff;
 
     box-shadow: 1px 2px 6.5px #c0c0c0;
-
     border-top: 5px solid #379c03;
 }
 #map-input{
@@ -282,7 +281,6 @@ footer{
    border:1px solid #308e00 !important;
 }
 .btn-info:hover{
-
    background-color: #256d00 !important;
 }
 a, a:hover {
@@ -309,4 +307,26 @@ a, a:hover {
 .news-artical-banner{
     background: url('../images/news-article-banner.jpg');
     background-position: center;
+}
+.table{
+    margin-bottom: 0px;
+}
+@media (max-width: 768px){
+    .banner-section{
+        padding: 2rem 0;
+    }
+    .banner-section .form-control{
+        min-height: 30px;
+        padding: 0px 5px
+    }
+    .banner-section button {
+        padding: 6px 10px;
+    }
+    .banner-section .icon{
+        padding: 0px 0px 0px 10px;
+    }
+    .banner-section .heading{
+        font-size:1.7rem;
+    }
+}
 
