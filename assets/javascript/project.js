@@ -136,25 +136,55 @@ $(document).ready(function () {
     function regEx() {
       testName();
       testPhoneNumber();
+      testURL();
+      // imageExists();
 
       function testName() {
-        name = $('#name-input').val().trim();
         var nameTest = name.search(/[0-9]/g);
         if (nameTest > -1) {
-          alert("Please enter only letters in this field.");
+          alert("Please enter only letters in the 'name' field.");
           event.preventDefault();
+          markerPlaced = false;
         }
       }
 
       function testPhoneNumber() {
-        // phone = $('#phone-input').val().trim();
         var phoneTest = phone.search(/^[2-9]\d{2}-\d{3}-\d{4}$/g);
 
-        if (phoneTest == -1 || phone == "") {
+        if (phoneTest == -1) {
           alert("Please enter a valid phone number")
           event.preventDefault();
+          markerPlaced = false;
         }
       }
+
+      function testURL() {
+        var gitTest = github.search(/^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$/);
+        var linkedinTest = linkedin.search(/^[a-zA-Z0-9\-\.]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$/);
+
+        if (gitTest == -1 && linkedinTest == -1) {
+          alert("Please enter a valid URL.")
+          event.preventDefault();
+          markerPlaced = false;
+        }
+      }
+
+      // function imageExists(url) {
+      //   url = github;
+      //   var image = new Image();
+
+      //   image.src = url;
+      //   if (!image.complete) {
+      //     alert("Please enter a URL shows an image.")
+      //     return false;
+      //   } else if (image.height === 0) {
+      //     alert("Please enter a URL shows an image.")
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+
+      // }
     }
     regEx();
 
