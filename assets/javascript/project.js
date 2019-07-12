@@ -264,6 +264,10 @@ $('#position-dropdown').on('change', function() {
   }
 
   ajaxMuse();
+<<<<<<< HEAD
+
+  
+=======
 });
 
 
@@ -328,4 +332,5 @@ event.preventDefault();
   $('#applyNowform').css("display", "none");
   $('.msg-success').css("display", "block");
  }
+>>>>>>> 4a4ba139efdf814118720f35fe4b2a6c1466859c
 });
