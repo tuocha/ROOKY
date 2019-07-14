@@ -311,6 +311,15 @@ a, a:hover {
 .table{
     margin-bottom: 0px;
 }
+h3, h4, h5, h6, .job-detail-content b, .job-detail-content strong{
+    color:#379c03;
+}
+h3{
+    font-size:1.5rem;
+}
+h4{
+    font-size:1.3rem;
+}
 @media (max-width: 768px){
     .banner-section{
         padding: 2rem 0;
