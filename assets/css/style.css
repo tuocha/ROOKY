@@ -18,7 +18,6 @@ header{
 .logo{
     font-family: 'Georgia', Times, Times New Roman, serif;
     background-color: #379c03;
-    /* background-color: #1dad70; */
     border: 1px solid #fff;
     color: #ffffff;
     display: inline-block;
@@ -238,7 +237,6 @@ footer{
 }
 .table-search{
     background-color: #fff;
-
     box-shadow: 1px 2px 6.5px #c0c0c0;
     border-top: 5px solid #379c03;
 }
@@ -307,6 +305,7 @@ a, a:hover {
 .news-artical-banner{
     background: url('../images/news-article-banner.jpg');
     background-position: center;
+
 }
 .table{
     margin-bottom: 0px;
