@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rooky job search</title>
+    <link rel="icon" type="image/gif" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-dark ">
+                <!-- Brand -->
+                <a class="navbar-brand logo" href="index.html">
+                    <img src="assets/images/Rooky-logo.png" width="80px"/>
+                </a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html" title="Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="interview-tips.html" title="Interview Tips">Interview Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news-article.html" title="News Artical">News Article</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="banner-section">
+        <div class="container">
+        <div class="text-center heading">
+                Find the perfect opportunity to change the world.
+        </div>
+        <div class="input-group mb-3" id="location-form"> 
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-map-marker-alt icon"></i> </span>
+            </div> 
+
+           <!-- <input type="text" class="form-control" placeholder="Search by keyword, skill, or interest">    -->
+            <select class="form-control" name="location" id="location-dropdown">
+                <option value="" disabled="" selected="">Select a job location</option>
+                <option value="San Francisco, CA">San Francisco, CA</option>
+                <option value="New York, NY">New York, NY</option>
+                <option value="Philadelphia, PA">Philadelphia, PA</option>
+                <option value="Boston, MA">Boston, MA</option>
+                <option value="Cambridge, MA">Cambridge, MA</option>
+            </select>
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-search icon"></i> </span>
+            </div>  
+            <select class="form-control" name="position" id="position-dropdown">
+                <option value="" disabled="" selected="">Select a job position</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Marketing &amp; PR">Marketing &amp; PR</option>
+                <option value="Operations">Operations</option>
+                <option value="Sales">Sales</option>
+            </select>
+            <div class="input-group-append">
+            <span class="input-group-text"><button type="button" class="btn btn-info">Search</button> </span>
+            </div>
+        </div>
+        <!-- <div id="geometry"></div> -->
+        </div>
+    </div>
+
+    <div class="container section-1">
+       <div class="search-table-section">
+        <div class="row ">
+            <div class="col-sm-12">
+                <h2 class="sub-heading text-center">Search a new job</h2>
+                <div class="table-job table-search table-responsive ">
+                    <!-- table of search results -->
+                    
+                    <table class="rtable table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Location</th>
+                                <th>View Job Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody search-results">
+                        <!-- results populate here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--Pin section-->
+        <div class="map-section">
+            <h2 class="sub-heading text-center">Want to add yourself as a developer? Fill out and submit the form below.</h2>
+               
+            <div class="dev-form-wrapper p-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-center"><strong>Click the map to place a pin on the location you want to be
+                                discovered.</strong></p>
+                        <div id="map-input">
+                        </div>
+                        <p id="error" class="animated d-none">Please place a marker on the map!</p>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="registrar-form">
+                            <div class="form-group">
+                                <label for="name-input">Your Name:</label>
+                                <input type="text" class="form-control" id="name-input" placeholder="Jane Doe" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="dev-image-input">Link to your photo:</label>
+                                <input type="text" class="form-control" id="dev-image-input"
+                                    placeholder="https://www.yourpicture.png" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone-input">Your Phone Number:</label>
+                                <input type="tel" class="form-control" id="phone-input" placeholder="555-555-5555" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="github-input">Link to your Github:</label>
+                                <input type="text" class="form-control" id="github-input"
+                                    placeholder="https://www.yourgithub.github.io" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="linkedin-input">Link to your Linkedin:</label>
+                                <input type="text" class="form-control" id="linkedin-input"
+                                    placeholder="https://www.linkedin.com/yourlink" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description-input">Description</label>
+                                <textarea class="form-control" id="description-input"
+                                    placeholder="Expert in Javascript, full-stack developer" required></textarea>
+                            </div>
+                            <input class="btn btn-info" id="submit-btn" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Copyright ©
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+   
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKwajkv1_CY2BsPt0DQCvUH9EruZYb3dg&callback=initMap"
+        type="text/javascript"></script>
+    <script src="assets/javascript/project.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+</body>
+</html>
