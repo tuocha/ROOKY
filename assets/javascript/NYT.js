@@ -1,6 +1,4 @@
-
 var authKey = "PunvAMm65w6cXjYDAbi01tl4hhmrIb59";
-
     // variable to track number of articles
     var articleCounter = 0;
     
@@ -78,3 +76,4 @@ var authKey = "PunvAMm65w6cXjYDAbi01tl4hhmrIb59";
         })
     }
         NYT();
+
